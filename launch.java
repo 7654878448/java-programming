@@ -1,9 +1,15 @@
-package com.reflection;
+package com.factoryBeans;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class launch {
-	public static void main(String[]args) throws Exception
+	public static void main(String[]args)
 	{
-		new create().createobject("com.reflection.target");
+		ClassPathXmlApplicationContext cl=	new ClassPathXmlApplicationContext("getbean.xml");
+		method  m1=(method)cl.getBean("met");
+		m1.uti();
+		
+		cl.close();
 	}
 
 }

@@ -1,22 +1,30 @@
-package string;
-import java.util.*;
+package com.factoryBeans;
 
-public class method {
-	public static void main(String[]args)
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class method implements InitializingBean,DisposableBean{
+	static {
+		System.out.println("bean loading");
+	}
+	public method()
 	{
-		String s="";
-		System.out.println(s.length());//method to find the length;
-		Scanner sc=new Scanner(System.in);
-		System.out.println("entere the string");
-		String str=sc.nextLine();
-				
-		//too take the input
+		System.out.println("Bean instition");
+	}
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("connection lost");
 		
-		//System.out.println(str.charAt(0));//method to get the index';
+	}
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("data goes into the database");
 		
-		
-		
-			
+	}
+	public void uti()
+	{
+		System.out.println("i am an custom utility method");
 	}
 	
 
